@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Shop</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">E-Store</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="{% url 'signupload' %}">Shop</a>
+            <a href="{% url 'loginload' %}">Login</a>
+            <a href="{% url 'signupload' %}" class="btn-signup">Signup</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>New Winter Collection</h1>
+            <p>Get up to 50% off on all new arrivals.</p>
+           <a href="{% url 'loginload' %}"><button class="shop-now"> Shop Now </button></a>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x350" alt="Product Name">
+                <div class="product-info">
+                    <h3>Classic Watch</h3>
+                    <p class="price">$120.00</p>
+                 <a href="{% url 'loginload' %}">      <button class="add-cart">Add to Cart</button> </a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://via.placeholder.com/300x350" alt="Product Name">
+                <div class="product-info">
+                    <h3>Leather Bag</h3>
+                    <p class="price">$85.00</p>
+                <a href="{% url 'loginload' %}">      <button class="add-cart">Add to Cart</button> </a>
+                </div>
+            </div>
+            <div class="product-card">
+               
+                <img src="https://via.placeholder.com/300x350" alt="Product Name">
+                <div class="product-info">
+                    <h3>Denim Jacket</h3>
+                    <p class="price">$95.00</p>
+                 <a href="{% url 'loginload' %}">    <button class="add-cart">Add to Cart</button></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <nav>
+            <a href="" class="active">Dashboard</a>
+            <a href="{% url 'add_cat' %}"> Add Categories</a>
+            <a href="{% url 'add_product' %}">Add Products</a>
+            <!-- <a href="#">Orders</a> -->
+            <a href="" class="logout">Logout</a>
+        </nav>
+    </div>
+
+    <main class="content">
+        <header>
+            <h1>Welcome back, Admin</h1>
+            <p>Manage your store inventory and categories here.</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="card">
+                <h3>Categories</h3>
+                <p>Manage your product groups</p>
+                <a href="{% url 'cat_list_load' %}" class="btn"> Category List </a>
+            </div>
+            <div class="card">
+                <h3>Products</h3>
+                <p>Add or edit store items</p>
+                <a href="{% url 'pro_list_load' %}" class="btn"> Product List </a>
+            </div>
+            <div class="card">
+                <h3>PROFILE</h3>
+                <p>DETAILS OF ADMIN</p>
+                <a href="#" class="btn secondary">View Details</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Store</title>
+    <style>
+        /* Modern Font and Background */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            padding: 40px;
+            color: #333;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Header Styling */
+        thead tr {
+            background-color: #2c3e50;
+            color: #ffffff;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Row Hover Effect */
+        tbody tr:hover {
+            background-color: #f9f9f9;
+            transition: 0.3s;
+        }
+
+        /* Image Container */
+        .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        /* Price Styling */
+        .price-tag {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        /* Button Styling */
+        .buy-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .buy-btn:hover {
+            background-color: #d35400;
+        }
+
+        .no-image {
+            font-size: 0.8em;
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center; margin-bottom: 30px;">Available Products</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Preview</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in products %}
+            <tr>
+                <td><strong>{{ p.product_name }}</strong></td>
+                <td><span class="price-tag">${{ p.product_price }}</span></td>
+                <td>
+                    {% if p.product_image %}
+                        <img src="{{ p.product_image.url }}" alt="{{ p.product_name }}" class="product-img">
+                    {% else %}
+                        <span class="no-image">No image available</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'buy_now' %}"><button class="buy-btn">Buy Now</button></a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" style="text-align: center; padding: 30px;">No products found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,90 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+
+body {
+    background: #f4f7f6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container Styling */
+.signup-container {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 450px;
+}
+
+h2 {
+    color: #2d3436;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+p {
+    color: #636e72;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Input Styling */
+input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border: 1px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+input:focus {
+    outline: none;
+    border-color: #00b894;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.1);
+}
+
+/* Row for side-by-side inputs */
+.row {
+    display: flex;
+    gap: 10px;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #00b894;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #00a887;
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    .row {
+        flex-direction: column;
+        gap: 0;
+    }
+}

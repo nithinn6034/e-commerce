@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="{% static 'css/prod_add.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+     <form action="/edit/{{prod.id}}" method="post" enctype="multipart/form-data" class="product-form">
+    <div class="add-product-container">
+       
+            {% csrf_token %}
+            <h1>New Product</h1>
+            <p>Enter details to edit </p>
+
+            <div class="field-group">
+                <label>Product Name</label>
+                <input type="text" name="name" value="{{prod.product_name}}" >
+            </div>
+
+            <div class="row">
+                <div class="field-group">
+                    <label>Quantity</label>
+                    <input type="text" name="quantity" value="{{prod.product_quantity}}" required>
+                </div>
+                <div class="field-group">
+                    <label>Price ($)</label>
+                    <input type="number" name="price" value="{{prod.product_price}}" step="0.01" required>
+                </div>
+            </div>
+
+           <div class="field-group">
+        <label>Category</label>
+        <select name="product_cat" required>
+            {% for category in a %}
+                <option value="{{ category.id }}" {% if category.id == prod.cat_table.id %}selected{% endif %}>
+                    {{ category.cat_name }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+            <div class="field-group">
+                <label>Product Image</label>
+                <input type="file" name="image" accept="image/*" class="file-input" value="{{prod.product_image}}">
+                    {% if prod.product_image %}
+
+         <img src="{{prod.product_image.url}}" alt="">
+          {% else %}
+         <p>No image uploaded</p>
+    {% endif %}
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="submit-btn">Edit Product</button>
+                <a href="{% url 'admin_load' %}" class="cancel-link">Cancel</a>
+            </div>
+        
+    </div>
+    </form>
+</body>
+</html>
